@@ -19,8 +19,8 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "12c58a68bc16a3d6")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "5b3d58bea9db93")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
@@ -244,6 +244,33 @@ namespace Umbraco.Web.PublishedContentModels
 		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Home, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Home Feature Content
+		///</summary>
+		[ImplementPropertyType("homeFeatureContent")]
+		public IHtmlString HomeFeatureContent
+		{
+			get { return this.GetPropertyValue<IHtmlString>("homeFeatureContent"); }
+		}
+
+		///<summary>
+		/// Home Feature Image
+		///</summary>
+		[ImplementPropertyType("homeFeatureImage")]
+		public IPublishedContent HomeFeatureImage
+		{
+			get { return this.GetPropertyValue<IPublishedContent>("homeFeatureImage"); }
+		}
+
+		///<summary>
+		/// Home Feature Title
+		///</summary>
+		[ImplementPropertyType("homeFeatureTitle")]
+		public string HomeFeatureTitle
+		{
+			get { return this.GetPropertyValue<string>("homeFeatureTitle"); }
 		}
 
 		///<summary>
